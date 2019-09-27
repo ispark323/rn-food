@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { View, Text, StyleSheet, FlatList } from "react-native";
+import ResultsDetail from "./ResultsDetail";
 
 const ResultsList = ({ title, results }) => {
   return (
@@ -8,21 +9,20 @@ const ResultsList = ({ title, results }) => {
       <FlatList
         horizontal
         data={results}
-        keyExtractor={(results) => results.id}
+        keyExtractor={results => results.id}
         renderItem={({ item }) => {
-          return <Text>{item.name}</Text>
+          return <ResultsDetail result={item} />;
         }}
       />
-      <Text>Results: {results.length}</Text>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   title: {
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: "bold"
   }
 });
 
-export default ResultsList;
+export default ResultsList;
